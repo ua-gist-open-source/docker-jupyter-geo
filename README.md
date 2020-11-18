@@ -14,22 +14,22 @@ docker build .
 ```
 Then to run jupyter, take the docker image hash from above and:
 ```
-docker run -it --rm -p 8888:8888 $DOCKER_IMAGE
+docker run -p 8888:8888 $DOCKER_IMAGE
 ```
 One has been built and published to docker hub as `aaryno/docker-jupyter-geo` and can also be run as:
 ```
-docker run -it --rm -p 8888:8888 --entrypoint python aaryno/docker-jupyter-geo
+docker run -p 8888:8888 --entrypoint python aaryno/docker-jupyter-geo
 ```
-To use a local volume for saving notebooks or loading data:
+To use a local volume (in the example, below, `$PWD` is the directory from which this command is run) for saving notebooks or loading data:
 ```
-docker run -it --rm -p 8888:8888 -v "$PWD":/home/jovyan/work aaryno/docker-jupyter-geo
+docker run -p 8888:8888 -v "$PWD":/home/jovyan/work aaryno/docker-jupyter-geo
 ```
 ## To run other programs in the python conda geo environment:
 ### Spyder
 ```
-docker run -it --rm --entrypoint spyder aaryno/docker-jupyter-geo
+docker run --entrypoint spyder aaryno/docker-jupyter-geo
 ```
-### Interactive Python repl:
+### Interactive Python:
 ```
-docker run -it --rm --entrypoint python aaryno/docker-jupyter-geo
+docker run -it --entrypoint python aaryno/docker-jupyter-geo
 ```
