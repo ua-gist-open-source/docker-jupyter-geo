@@ -1,6 +1,6 @@
 FROM jupyter/scipy-notebook:2c80cf3537ca
 
-USER ROOT
+USER root
 
 RUN apt-get update -y && apt-get install -y apt-transport-https ca-certificates
 RUN apt-get install -y libwebp-dev
