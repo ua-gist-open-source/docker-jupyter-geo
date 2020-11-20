@@ -26,9 +26,7 @@ docker run -p 8888:8888 -v "$PWD":/home/jovyan/work aaryno/docker-jupyter-geo
 ```
 ## To run other programs in the python conda geo environment:
 ### Spyder
-```
-docker run --entrypoint spyder aaryno/docker-jupyter-geo
-```
+_Still trying to get a working pattern for spyder and this container_
 ### Interactive Python:
 ```
 docker run -it --entrypoint python aaryno/docker-jupyter-geo
