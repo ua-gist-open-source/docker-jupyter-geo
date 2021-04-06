@@ -1,0 +1,13 @@
+FROM jupyter/scipy-notebook:4d9c9bd9ced0
+
+USER root
+
+RUN apt-get update -y && apt-get install -y apt-transport-https ca-certificates libwebp-dev libopenjp2-7-dev libtiff5
+
+RUN conda install python=3 geopandas matplotlib shapely descartes fiona pyproj rasterstats rasterio libwebp-base libwebp spyder
+
+EXPOSE 8888
+
+USER jovyan
+
+CMD ["start-notebook.sh","--ip=0.0.0.0","--allow-root"]
