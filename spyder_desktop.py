@@ -20,8 +20,8 @@ proj = os.path.basename(sys.argv[0]).split('_')[0]
 image = owner + '/' + proj + "-desktop"
 image = "aaryno/spyder-geo"
 tag = ""
-projdir = "project"
-workdir = "project"
+projdir = "data"
+workdir = "shared"
 volume = proj + "_project"
 
 
@@ -372,7 +372,7 @@ if __name__ == "__main__":
         stderr_write("Error: Could not find a free port.\n")
         sys.exit(-1)
 
-    cmd = ["docker", "run", "-d",  "--name", container,
+    cmd = ["docker", "run", "-d", rmflag, "--name", container,
                      "--shm-size", "2g", "-p", port_http + ":6080",
                      "-p", port_vnc + ":5900"] + \
         envs + volumes + devices + args.args.split() + \
@@ -476,3 +476,4 @@ if __name__ == "__main__":
             handle_interrupt(container)
         except OSError:
             sys.exit(-1)
+
